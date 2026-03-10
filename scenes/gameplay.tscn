@@ -1,0 +1,217 @@
+[gd_scene load_steps=23 format=4 uid="uid://uifc61cl6pw0"]
+
+[ext_resource type="Texture2D" uid="uid://clswqmr7hlmmp" path="res://textures/platform.png" id="1_7biu0"]
+[ext_resource type="Texture2D" uid="uid://x26lp4cg8nwy" path="res://textures/cat-idle.png" id="2_00tan"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_00tan"]
+resource_name = "platform"
+texture = ExtResource("1_7biu0")
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 8, -8, 8, 0, 0, 0)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -8, -8, -8, 0, 0, 0)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -8, 8, -8, 0, 0, 0)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, 8, 8, 8, 0, 0, 0)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, -8, -8, -8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, 0, 0, 8, 0, 8, -8, 0, -8, 0, 0, -8, 0, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, -8, 0, -8, 0, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 0, -8, 0, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0, -8, 0, 0, 8, 0, 8, 8, 0, 8, 0, 0, -8, 0)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0, -8, 0, 0, 8, 0, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 0, 0, 0, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, -8, 0, -8, -8, 8, -8, 8, 8, 0, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -8, 8, -8, -8, 8, -8, 8, 0, 0, 0)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l1v76"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_00tan")
+
+[sub_resource type="GDScript" id="GDScript_00tan"]
+resource_name = "player"
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1v76"]
+atlas = ExtResource("2_00tan")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct7aa"]
+atlas = ExtResource("2_00tan")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocj2s"]
+atlas = ExtResource("2_00tan")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_din8e"]
+atlas = ExtResource("2_00tan")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bh5q"]
+atlas = ExtResource("2_00tan")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e124b"]
+atlas = ExtResource("2_00tan")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_101mb"]
+atlas = ExtResource("2_00tan")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbo4f"]
+atlas = ExtResource("2_00tan")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctvyo"]
+atlas = ExtResource("2_00tan")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qixtg"]
+atlas = ExtResource("2_00tan")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt65e"]
+atlas = ExtResource("2_00tan")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhmdk"]
+atlas = ExtResource("2_00tan")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5y6v"]
+atlas = ExtResource("2_00tan")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_407ns"]
+atlas = ExtResource("2_00tan")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3w6i"]
+atlas = ExtResource("2_00tan")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pv71h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1v76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct7aa")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_l1v76")
+}],
+"loop": true,
+"name": &"blinking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocj2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_din8e")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4bh5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e124b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_101mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbo4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctvyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qixtg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt65e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhmdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5y6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_407ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3w6i")
+}],
+"loop": true,
+"name": &"flicking tail",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6b5a"]
+size = Vector2(8, 14)
+
+[node name="Gameplay" type="Node2D"]
+
+[node name="platforms" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAADAAYAAAADAAMAAAAEAAYAAAADAAMAAAAFAAYAAAADAAMAAAAGAAYAAAADAAMAAAAHAAYAAAADAAMAAAAIAAYAAAADAAMAAAAOAAEAAAADAAMAAAANAAEAAAADAAMAAAANAAIAAAADAAMAAAAMAAIAAAADAAMAAAAMAAMAAAABAAEAAAAMAAQAAAACAAIAAAANAAQAAAAAAAMAAAAOAAQAAAADAAMAAAAOAAUAAAADAAMAAAAIAAcAAAABAAEAAAAHAAcAAAABAAEAAAAGAAcAAAABAAEAAAAFAAcAAAABAAEAAAAEAAcAAAABAAEAAAADAAcAAAABAAEAAAAJAAUAAAADAAAAAAACAAUAAAAAAAEAAAAJAAcAAAACAAAAAAACAAcAAAABAAAAAAACAAYAAAADAAEAAAAJAAYAAAAAAAIAAAAIAAUAAAACAAIAAAAHAAUAAAACAAIAAAAGAAUAAAACAAIAAAAFAAUAAAACAAIAAAAEAAUAAAACAAIAAAADAAUAAAACAAIAAAAPAAYAAAACAAAAAAAPAAIAAAACAAAAAAAOAAYAAAABAAEAAAAMAAUAAAABAAEAAAANAAUAAAABAAMAAAANAAYAAAABAAAAAAALAAUAAAABAAAAAAALAAQAAAAAAAEAAAALAAMAAAABAAAAAAALAAIAAAADAAEAAAALAAEAAAAAAAEAAAAMAAAAAAAAAAEAAAAMAAEAAAAAAAMAAAANAAAAAAACAAIAAAAOAAAAAAACAAIAAAAPAAAAAAADAAAAAAAPAAEAAAAAAAIAAAAPAAUAAAAAAAIAAAAPAAQAAAAAAAIAAAAPAAMAAAADAAAAAAAOAAIAAAACAAMAAAAOAAMAAAADAAIAAAANAAMAAAABAAMAAAAAAA0AAAACAAIAAAABAA0AAAACAAIAAAACAA0AAAACAAIAAAADAA0AAAACAAIAAAAEAA0AAAACAAIAAAAFAA0AAAACAAIAAAAGAA0AAAACAAIAAAAHAA0AAAACAAIAAAAIAA0AAAAAAAMAAAAJAA0AAAADAAMAAAAKAA0AAAADAAMAAAALAA0AAAADAAMAAAAMAA0AAAADAAMAAAANAA0AAAADAAMAAAAOAA0AAAADAAMAAAAPAA0AAAADAAMAAAAQAA0AAAADAAMAAAARAA0AAAADAAMAAAASAA0AAAADAAMAAAATAA0AAAADAAIAAAAUAA0AAAACAAIAAAAYAA0AAAACAAIAAAAXAA0AAAACAAIAAAAWAA0AAAACAAIAAAAVAA0AAAACAAIAAAAYAA4AAAADAAMAAAAXAA4AAAADAAMAAAAWAA4AAAADAAMAAAAVAA4AAAADAAMAAAAUAA4AAAADAAMAAAATAA4AAAADAAMAAAASAA4AAAADAAMAAAARAA4AAAADAAMAAAAQAA4AAAADAAMAAAAPAA4AAAADAAMAAAAOAA4AAAADAAMAAAANAA4AAAADAAMAAAAMAA4AAAADAAMAAAALAA4AAAADAAMAAAAKAA4AAAADAAMAAAAJAA4AAAADAAMAAAAIAA4AAAADAAMAAAAHAA4AAAADAAMAAAAGAA4AAAADAAMAAAACAA4AAAADAAMAAAADAA4AAAADAAMAAAAEAA4AAAADAAMAAAAFAA4AAAADAAMAAAAAAA4AAAADAAMAAAABAA4AAAADAAMAAAAKAAwAAAADAAMAAAALAAwAAAADAAMAAAALAAsAAAADAAMAAAAMAAsAAAADAAMAAAANAAsAAAACAAMAAAANAAoAAAADAAMAAAAOAAoAAAADAAMAAAAOAAkAAAADAAMAAAAPAAkAAAADAAMAAAAPAAgAAAADAAMAAAAQAAgAAAADAAMAAAAJAAwAAAAAAAMAAAAKAAsAAAAAAAMAAAAMAAoAAAAAAAMAAAANAAkAAAAAAAMAAAAOAAgAAAAAAAMAAAAIAAwAAAAAAAEAAAAJAAsAAAAAAAEAAAAKAAoAAAAAAAEAAAAMAAkAAAAAAAEAAAANAAgAAAAAAAEAAAAOAAcAAAAAAAEAAAALAAoAAAACAAIAAAAPAAcAAAACAAIAAAARAAwAAAADAAMAAAARAAsAAAADAAMAAAAQAAsAAAADAAMAAAAQAAoAAAADAAMAAAAQAAkAAAADAAMAAAARAAoAAAADAAMAAAASAAwAAAADAAMAAAAQAAwAAAADAAMAAAAPAAwAAAADAAMAAAAOAAwAAAAAAAMAAAAOAAsAAAABAAMAAAAPAAsAAAADAAMAAAAPAAoAAAADAAMAAAANAAwAAAADAAIAAAAMAAwAAAADAAMAAAARAAcAAAADAAAAAAASAAkAAAADAAAAAAATAAsAAAADAAAAAAASAAsAAAADAAIAAAARAAkAAAADAAIAAAAQAAcAAAACAAIAAAARAAgAAAAAAAIAAAASAAoAAAAAAAIAAAATAAwAAAAAAAIAAAATAAMAAAAAAAIAAAATAAQAAAAAAAIAAAATAAUAAAACAAMAAAATAAYAAAAAAAIAAAAVAAMAAAAAAAIAAAAVAAQAAAAAAAIAAAAVAAUAAAAAAAIAAAAVAAYAAAAAAAIAAAAXAAUAAAAAAAIAAAAXAAYAAAAAAAIAAAAXAAQAAAADAAAAAAAXAAMAAAACAAAAAAAUAAUAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_l1v76")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(360, 580)
+scale = Vector2(4, 4)
+script = SubResource("GDScript_00tan")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_pv71h")
+animation = &"blinking"
+frame_progress = 0.95026696
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_m6b5a")

@@ -11,5 +11,17 @@ config_version=5
 [application]
 
 config/name="bad ideas game jam entry"
+run/main_scene="uid://uifc61cl6pw0"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
