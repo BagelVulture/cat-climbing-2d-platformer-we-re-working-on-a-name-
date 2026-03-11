@@ -1,9 +1,10 @@
-[gd_scene load_steps=62 format=4 uid="uid://uifc61cl6pw0"]
+[gd_scene load_steps=68 format=4 uid="uid://uifc61cl6pw0"]
 
 [ext_resource type="Texture2D" uid="uid://clswqmr7hlmmp" path="res://textures/platform.png" id="1_7biu0"]
 [ext_resource type="Texture2D" uid="uid://df85m4crriw1s" path="res://textures/bg.png" id="1_din8e"]
 [ext_resource type="Texture2D" uid="uid://cbk8oqkrut1rm" path="res://textures/cat idle.png" id="2_00tan"]
 [ext_resource type="Texture2D" uid="uid://6yvj70e52ens" path="res://textures/bg climbable.png" id="2_l1v76"]
+[ext_resource type="Texture2D" uid="uid://cumkk21bvsmyy" path="res://textures/catnip.png" id="4_4bh5q"]
 [ext_resource type="Texture2D" uid="uid://conq35htnhv47" path="res://textures/cat run.png" id="4_ocj2s"]
 [ext_resource type="Texture2D" uid="uid://drhjbnfeketlm" path="res://textures/cat walk.png" id="5_din8e"]
 
@@ -135,10 +136,95 @@ texture = ExtResource("2_l1v76")
 2:3/0 = 0
 3:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e124b"]
+texture = ExtResource("4_4bh5q")
+0:0/animation_columns = 6
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/animation_frame_4/duration = 0.2
+0:0/animation_frame_5/duration = 0.2
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -5, 4, -5, 4, 6, -4, 6)
+
 [sub_resource type="TileSet" id="TileSet_l1v76"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_00tan")
 sources/1 = SubResource("TileSetAtlasSource_4bh5q")
+sources/3 = SubResource("TileSetAtlasSource_e124b")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_101mb"]
+resource_name = "platform"
+texture = ExtResource("1_7biu0")
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 8, -8, 8, 0, 0, 0)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -8, -8, -8, 0, 0, 0)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -8, 8, -8, 0, 0, 0)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, 8, 8, 8, 0, 0, 0)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, -8, -8, -8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, 0, 0, 8, 0, 8, -8, 0, -8, 0, 0, -8, 0, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, -8, 0, -8, 0, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 0, -8, 0, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0, -8, 0, 0, 8, 0, 8, 8, 0, 8, 0, 0, -8, 0)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0, -8, 0, 0, 8, 0, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 0, 0, 0, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, -8, 0, -8, -8, 8, -8, 8, 8, 0, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -8, 8, -8, -8, 8, -8, 8, 0, 0, 0)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbo4f"]
+texture = ExtResource("2_l1v76")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctvyo"]
+texture = ExtResource("4_4bh5q")
+0:0/animation_columns = 6
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/animation_frame_4/duration = 0.2
+0:0/animation_frame_5/duration = 0.2
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -5, 4, -5, 4, 6, -4, 6)
+
+[sub_resource type="TileSet" id="TileSet_qixtg"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_101mb")
+sources/1 = SubResource("TileSetAtlasSource_hbo4f")
+sources/3 = SubResource("TileSetAtlasSource_ctvyo")
 
 [sub_resource type="GDScript" id="GDScript_00tan"]
 resource_name = "player"
@@ -171,7 +257,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.animation = \"walking\"
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if $AnimatedSprite2D.animation == \"blinking\":
+		if $AnimatedSprite2D.animation != \"blinking\":
 			$AnimatedSprite2D.animation = \"blinking\"
 	
 	if direction < 0:
@@ -551,6 +637,11 @@ position = Vector2(32, 32)
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAADAAYAAAADAAMAAAAEAAYAAAADAAMAAAAFAAYAAAADAAMAAAAGAAYAAAADAAMAAAAHAAYAAAADAAMAAAAIAAYAAAADAAMAAAAOAAEAAAADAAMAAAANAAEAAAADAAMAAAANAAIAAAADAAMAAAAMAAIAAAADAAMAAAAMAAMAAAABAAEAAAAMAAQAAAACAAIAAAANAAQAAAAAAAMAAAAOAAQAAAADAAMAAAAOAAUAAAADAAMAAAAIAAcAAAABAAEAAAAHAAcAAAABAAEAAAAGAAcAAAABAAEAAAAFAAcAAAABAAEAAAAEAAcAAAABAAEAAAADAAcAAAABAAEAAAAJAAUAAAADAAAAAAACAAUAAAAAAAEAAAAJAAcAAAACAAAAAAACAAcAAAABAAAAAAACAAYAAAADAAEAAAAJAAYAAAAAAAIAAAAIAAUAAAACAAIAAAAHAAUAAAACAAIAAAAGAAUAAAACAAIAAAAFAAUAAAACAAIAAAAEAAUAAAACAAIAAAADAAUAAAACAAIAAAAPAAYAAAACAAAAAAAPAAIAAAACAAAAAAAOAAYAAAABAAEAAAAMAAUAAAABAAEAAAANAAUAAAABAAMAAAANAAYAAAABAAAAAAALAAUAAAABAAAAAAALAAQAAAAAAAEAAAALAAMAAAABAAAAAAALAAIAAAADAAEAAAALAAEAAAAAAAEAAAAMAAAAAAAAAAEAAAAMAAEAAAAAAAMAAAANAAAAAAACAAIAAAAOAAAAAAACAAIAAAAPAAAAAAADAAAAAAAPAAEAAAAAAAIAAAAPAAUAAAAAAAIAAAAPAAQAAAAAAAIAAAAPAAMAAAADAAAAAAAOAAIAAAACAAMAAAAOAAMAAAADAAIAAAANAAMAAAABAAMAAAAAAA0AAAACAAIAAAABAA0AAAACAAIAAAACAA0AAAACAAIAAAADAA0AAAACAAIAAAAEAA0AAAACAAIAAAAFAA0AAAACAAIAAAAGAA0AAAACAAIAAAAHAA0AAAACAAIAAAAIAA0AAAAAAAMAAAAJAA0AAAADAAMAAAAKAA0AAAADAAMAAAALAA0AAAADAAMAAAAMAA0AAAADAAMAAAANAA0AAAADAAMAAAAOAA0AAAADAAMAAAAPAA0AAAADAAMAAAAQAA0AAAADAAMAAAARAA0AAAADAAMAAAASAA0AAAADAAMAAAATAA0AAAADAAIAAAAUAA0AAAACAAIAAAAYAA0AAAACAAIAAAAXAA0AAAACAAIAAAAWAA0AAAACAAIAAAAVAA0AAAACAAIAAAAYAA4AAAADAAMAAAAXAA4AAAADAAMAAAAWAA4AAAADAAMAAAAVAA4AAAADAAMAAAAUAA4AAAADAAMAAAATAA4AAAADAAMAAAASAA4AAAADAAMAAAARAA4AAAADAAMAAAAQAA4AAAADAAMAAAAPAA4AAAADAAMAAAAOAA4AAAADAAMAAAANAA4AAAADAAMAAAAMAA4AAAADAAMAAAALAA4AAAADAAMAAAAKAA4AAAADAAMAAAAJAA4AAAADAAMAAAAIAA4AAAADAAMAAAAHAA4AAAADAAMAAAAGAA4AAAADAAMAAAACAA4AAAADAAMAAAADAA4AAAADAAMAAAAEAA4AAAADAAMAAAAFAA4AAAADAAMAAAAAAA4AAAADAAMAAAABAA4AAAADAAMAAAAKAAwAAAADAAMAAAALAAwAAAADAAMAAAALAAsAAAADAAMAAAAMAAsAAAADAAMAAAANAAsAAAACAAMAAAANAAoAAAADAAMAAAAOAAoAAAADAAMAAAAOAAkAAAADAAMAAAAPAAkAAAADAAMAAAAPAAgAAAADAAMAAAAQAAgAAAADAAMAAAAJAAwAAAAAAAMAAAAKAAsAAAAAAAMAAAAMAAoAAAAAAAMAAAANAAkAAAAAAAMAAAAOAAgAAAAAAAMAAAAIAAwAAAAAAAEAAAAJAAsAAAAAAAEAAAAKAAoAAAAAAAEAAAAMAAkAAAAAAAEAAAANAAgAAAAAAAEAAAAOAAcAAAAAAAEAAAALAAoAAAACAAIAAAAPAAcAAAACAAIAAAARAAwAAAADAAMAAAARAAsAAAADAAMAAAAQAAsAAAADAAMAAAAQAAoAAAADAAMAAAAQAAkAAAADAAMAAAARAAoAAAADAAMAAAASAAwAAAADAAMAAAAQAAwAAAADAAMAAAAPAAwAAAADAAMAAAAOAAwAAAAAAAMAAAAOAAsAAAABAAMAAAAPAAsAAAADAAMAAAAPAAoAAAADAAMAAAANAAwAAAADAAIAAAAMAAwAAAADAAMAAAARAAcAAAADAAAAAAASAAkAAAADAAAAAAATAAsAAAADAAAAAAASAAsAAAADAAIAAAARAAkAAAADAAIAAAAQAAcAAAACAAIAAAARAAgAAAAAAAIAAAASAAoAAAAAAAIAAAATAAwAAAAAAAIAAAATAAMAAAAAAAIAAAATAAQAAAAAAAIAAAATAAUAAAACAAMAAAATAAYAAAAAAAIAAAAVAAMAAAAAAAIAAAAVAAQAAAAAAAIAAAAVAAUAAAAAAAIAAAAVAAYAAAAAAAIAAAAXAAUAAAAAAAIAAAAXAAYAAAAAAAIAAAAXAAQAAAADAAAAAAAXAAMAAAACAAAAAAAUAAUAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_l1v76")
+
+[node name="collectibles_interactables" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAHAA0AAwAAAAAAAAAIAAUAAwAAAAAAAAAQAAcAAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_qixtg")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(360, 580)
